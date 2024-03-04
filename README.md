@@ -16,7 +16,7 @@ To run a specific algorithm, `cd` to this directory and run:
 
 ### Laplace Expansion
 Time complexity: O(n!)
-![Laplace Expansion Graph](/images/laplace.png | width=100)
+![Laplace Expansion Graph](/images/laplace.png)
 
 [laplace.py](/laplace.py)
 
