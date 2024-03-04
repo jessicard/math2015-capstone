@@ -22,7 +22,7 @@ To run a specific algorithm, `cd` to this directory in your terminal and run:
 $ python3 <filename>.py
 ```
 
-### Git
+### Git on the Command Line
 
 **NOTE: Please never force push, it's too dangerous when working together!**
 
