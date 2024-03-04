@@ -3,9 +3,9 @@
 Our capstone calculates the deteminant of a matrix in various ways, and shows the different complexities of each through timing and graphs.
 
 Group members:
-- Jessica Card
-- Alexander Mies
-- Jacob Million
+- [Jessica Card](https://github.com/jessicard)
+- [Alexander Mies](https://github.com/AlexanderMies)
+- [Jacob Million](https://github.com/JacobMMillion)
 - Edward Yi
 
 
