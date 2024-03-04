@@ -2,9 +2,19 @@
 
 Our capstone calculates the deteminant of a matrix in various ways, and shows the different complexities of each through timing and graphs.
 
+## Running locally
+### Dependencies
+For graphing, we are using [matplotlib](https://matplotlib.org/).
+`pip install matplotlib`
+
+### Run an algorithm
+To run a specific algorithm, `cd` to this directory and run:
+`python3 <filename>.py`
+
+## Algorithms
 [Computational Complexities of Matrix Multiplication](https://en.wikipedia.org/wiki/Computational_complexity_of_matrix_multiplication)
 
-## Laplace Expansion
+### Laplace Expansion
 Time complexity: O(n!)
 
 [laplace.py](/laplace.py)
@@ -14,14 +24,14 @@ Laplace Expansion, also commonly referred to as the cofactor expansion, method c
 TODO: Add more algorithms!
 Some other examples of algorithms:
 
-## Bareiss Algorithm
+### Bareiss Algorithm
 [Wikipedia](https://en.wikipedia.org/wiki/Bareiss_algorithm)
 Time complexity: O(n^3)
 
-## LU-decomposition
+### LU-decomposition
 [Wikipedia](https://en.wikipedia.org/wiki/LU_decomposition)
 Time complexity: O(n^3)
 
-## Strassen
+### Strassen
 [Wikipedia](https://en.wikipedia.org/wiki/Strassen_algorithm)
 Time complexity: O(n(2.807))

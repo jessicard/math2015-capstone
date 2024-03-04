@@ -1,27 +1,15 @@
-import numpy as np
 import timeit
-import matplotlib
+import random
 from matplotlib import pyplot as plt
 
-matrix_2 = [
-    [1,2],
-    [3,4]
-]
+def generate_matrix(sz):
+  matrix = []
+  for i in range(sz):
+    matrix.append([])
+    for j in range(sz):
+      matrix[i].append(random.randint(0,9))
 
-# Det: 0
-matrix_3 = [
-    [1,2,3],
-    [4,5,6],
-    [7,8,10]
-]
-
-matrix_5 = [
-    [1,2,3,4,5],
-    [1,2,3,4,5],
-    [1,2,3,4,5],
-    [1,2,3,4,5],
-    [1,2,3,4,5]
-]
+  return matrix
 
 # RECURSION BABY
 def calc_det(matrix):
@@ -42,6 +30,7 @@ def calc_det(matrix):
       if i != j:
         chopped_matrix.append(matrix[j][1:])
 
+    # We have to alternate + / - for this algorithm
     for k, _ in enumerate(x):
       if i % 2 == 0:
         if k % 2 == 0:
@@ -56,22 +45,18 @@ def calc_det(matrix):
 
   return sum
 
-print(calc_det(matrix_3))
+times = []
+runtimes = []
 
-#10000
-#~0.004s
+# This is O(n!), if you increase this upper bound, prepare to wait... forever
+for i in range(2, 8):
+  mx = generate_matrix(i)
+  print(mx)
 
-#100000
-#~.04s
-
-#1000000
-#~3.10s
-
-#10000000
-#~30.88s
-
-
-for i in range(1000000):
-  runtime = timeit.timeit(lambda: calc_det(matrix_3), number=i)
+  runtime = timeit.timeit(lambda: calc_det(mx), number=i)
+  runtimes.append(runtime)
+  times.append(i)
   print(runtime)
-  plt.plot(i, runtime)
+
+plt.plot(runtimes, times)
+plt.show()
