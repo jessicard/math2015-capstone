@@ -22,6 +22,35 @@ To run a specific algorithm, `cd` to this directory in your terminal and run:
 $ python3 <filename>.py
 ```
 
+### Git
+
+*NOTE: Please never force push, it's too dangerous when working together!*
+
+To pull changes:
+```
+$ git pull origin main
+```
+
+To add all new file changes:
+```
+$ git add .
+```
+
+To add a specific file change:
+```
+$ git add <filename>
+```
+
+To commit your changes:
+```
+$ git commit -m "Commit message about what you changed"
+```
+
+To push your changes to the repo (you may need to pull first):
+```
+$ git push origin master
+```
+
 ## Algorithms
 [Computational Complexities of Matrix Multiplication](https://en.wikipedia.org/wiki/Computational_complexity_of_matrix_multiplication)
 
