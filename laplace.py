@@ -45,18 +45,18 @@ def calc_det(matrix):
 
   return sum
 
-times = []
+dim = []
 runtimes = []
 
 # This is O(n!), if you increase this upper bound, prepare to wait... forever
-for i in range(2, 8):
+for i in range(2, 9):
   mx = generate_matrix(i)
   print(mx)
 
-  runtime = timeit.timeit(lambda: calc_det(mx), number=i)
+  runtime = timeit.timeit(lambda: calc_det(mx), number=1, unit="sec")
   runtimes.append(runtime)
-  times.append(i)
+  dim.append(i)
   print(runtime)
 
-plt.plot(times, runtimes)
+plt.plot(dim, runtimes)
 plt.show()
