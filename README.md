@@ -4,12 +4,16 @@ Our capstone calculates the deteminant of a matrix in various ways, and shows th
 
 ## Running locally
 ### Dependencies
-For graphing, we are using [matplotlib](https://matplotlib.org/).
-`pip install matplotlib`
+For graphing, we are using [matplotlib](https://matplotlib.org/). It's recommended to install the dependency on the command line with [pip](https://pypi.org/project/pip/).
+```
+$ pip install matplotlib
+```
 
 ### Run an algorithm
-To run a specific algorithm, `cd` to this directory and run:
-`python3 <filename>.py`
+To run a specific algorithm, `cd` to this directory in your terminal and run:
+```
+$ python3 <filename>.py
+```
 
 ## Algorithms
 [Computational Complexities of Matrix Multiplication](https://en.wikipedia.org/wiki/Computational_complexity_of_matrix_multiplication)
