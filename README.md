@@ -1,6 +1,6 @@
 # Math 2015 Capstone
 
-Our capstone calculates the deteminant of a matrix in various ways, and shows the different complexities of each through timing and graphs.
+Our capstone calculates the deteminant of a matrix in various ways using Python, and shows the different complexities of each through time tests and graphs.
 
 Group members:
 - [Jessica Card](https://github.com/jessicard)
