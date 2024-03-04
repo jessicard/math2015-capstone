@@ -16,7 +16,7 @@ To run a specific algorithm, `cd` to this directory and run:
 
 ### Laplace Expansion
 Time complexity: O(n!)
-![Laplace Expansion Graph](/images/laplace.png)
+![Laplace Expansion Graph](/images/laplace.png | width=100)
 
 [laplace.py](/laplace.py)
 
@@ -35,4 +35,4 @@ Time complexity: O(n^3)
 
 ### Strassen
 [Wikipedia](https://en.wikipedia.org/wiki/Strassen_algorithm)
-Time complexity: O(n(2.807))
+Time complexity: O(n^(2.807))
