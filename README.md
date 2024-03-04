@@ -24,8 +24,6 @@ $ python3 <filename>.py
 
 ### Git on the Command Line
 
-**NOTE: Please never force push, it's too dangerous when working together!**
-
 To pull changes:
 ```
 $ git pull origin main
@@ -47,6 +45,9 @@ $ git commit -m "Commit message about what you changed"
 ```
 
 To push your changes to the repo (you may need to pull first):
+
+**NOTE: Please never force push, it's too dangerous when working together!**
+
 ```
 $ git push origin master
 ```
