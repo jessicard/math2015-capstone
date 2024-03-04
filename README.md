@@ -2,6 +2,13 @@
 
 Our capstone calculates the deteminant of a matrix in various ways, and shows the different complexities of each through timing and graphs.
 
+Group members:
+Jessica Card
+Alexander Mies
+Jacob Million
+Edward Yi
+
+
 ## Running locally
 ### Dependencies
 For graphing, we are using [matplotlib](https://matplotlib.org/). It's recommended to install the dependency on the command line with [pip](https://pypi.org/project/pip/).
