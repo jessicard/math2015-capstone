@@ -24,7 +24,7 @@ $ python3 <filename>.py
 
 ### Git
 
-*NOTE: Please never force push, it's too dangerous when working together!*
+**NOTE: Please never force push, it's too dangerous when working together!**
 
 To pull changes:
 ```
