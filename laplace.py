@@ -53,7 +53,7 @@ for i in range(2, 9):
   mx = generate_matrix(i)
   print(mx)
 
-  runtime = timeit.timeit(lambda: calc_det(mx), number=1, unit="sec")
+  runtime = timeit.timeit(lambda: calc_det(mx), number=1)
   runtimes.append(runtime)
   dim.append(i)
   print(runtime)
