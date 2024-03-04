@@ -58,5 +58,5 @@ for i in range(2, 8):
   times.append(i)
   print(runtime)
 
-plt.plot(runtimes, times)
+plt.plot(times, runtimes)
 plt.show()
