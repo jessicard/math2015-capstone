@@ -81,7 +81,7 @@ The meat of the code for this algorithm is 3 nested for loops, hence the O(n^3) 
         for i in range(k, n):
             for j in range(k, n):
 
-            matrix[i][j] = (matrix[i][j] * matrix[k-1][k-1] - matrix[i][k-1] * matrix[k-1][j]) / matrix[k-1][k-1]
+                matrix[i][j] = (matrix[i][j] * matrix[k-1][k-1] - matrix[i][k-1] * matrix[k-1][j]) / matrix[k-1][k-1]
 
 This algorithm modifies the matrix in place and after calculation, the determinant can be found at M[n][n]. 
 
