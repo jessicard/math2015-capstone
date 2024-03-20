@@ -25,8 +25,14 @@ def bareiss_algorithm(matrix):
     for k in range(1, n):
         for i in range(k, n):
             for j in range(k, n):
-                matrix[i][j] = (matrix[i][j] * matrix[k-1][k-1] -
-                                matrix[i][k-1] * matrix[k-1][j]) / matrix[k-1][k-1]
+
+                if (matrix[k-1][k-1] == 0):
+                    matrix[i][j] = (matrix[i][j] * matrix[k-1][k-1] - matrix[i]
+                                    [k-1] * matrix[k-1][j]) / 0.0000000000000001  # small num, maybe change?
+
+                else:
+                    matrix[i][j] = (matrix[i][j] * matrix[k-1][k-1] -
+                                    matrix[i][k-1] * matrix[k-1][j]) / matrix[k-1][k-1]
 
     # Compute the determinant, simply the n,n of the matrix
     determinant = matrix[n-1][n-1]
@@ -36,8 +42,8 @@ def bareiss_algorithm(matrix):
 dim = []
 runtimes = []
 
-# This is O(n^3), if you increase this upper bound, prepare to wait... forever
-for i in range(2, 8):
+# This is O(n^3)
+for i in range(2, 200):
     mx = generate_matrix(i)
     print(mx)
 
