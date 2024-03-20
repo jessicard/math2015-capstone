@@ -73,7 +73,17 @@ Laplace Expansion, also commonly referred to as the cofactor expansion, method c
 [Wikipedia](https://en.wikipedia.org/wiki/Bareiss_algorithm)
 Time complexity: O(n^3)
 
-During execution of the Bareiss algorithm, every integer that is computed is the determinant of a submatrix of the input matrix. The matrix is modified in place and after calculation, the determinant can be found at M[n][n]. 
+During execution of the Bareiss algorithm, every integer that is computed is the determinant of a submatrix of the input matrix. 
+
+The meat of the code for this algorithm is 3 nested for loops, hence the O(n^3) complexity. 
+
+    for k in range(1, n):
+        for i in range(k, n):
+            for j in range(k, n):
+
+            matrix[i][j] = (matrix[i][j] * matrix[k-1][k-1] - matrix[i][k-1] * matrix[k-1][j]) / matrix[k-1][k-1]
+
+This algorithm modifies the matrix in place and after calculation, the determinant can be found at M[n][n]. 
 
 ### LU-decomposition
 [Wikipedia](https://en.wikipedia.org/wiki/LU_decomposition)
