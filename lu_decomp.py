@@ -29,28 +29,28 @@ def LUPDecompose(A, Tol=1.0e-9):
 def generate_matrix(N):
     return np.random.rand(N, N)*10
 
-def format_ns(x, pos):
-    return f'{int(x)} ns'
+def format_seconds(x, pos):
+    return f'{x:.2f} s'
 
 dim = []
-runtimes_ns = []
+runtimes_s = []
 
-for i in range(2, 9):  # can adjust range for sizes
+for i in range(2, 128):  # can adjust range for sizes
     A = generate_matrix(i)
     start_time = timeit.default_timer()
     P = LUPDecompose(A.copy())  # use A.copy() to avoid modifying the original A
-    runtime_ns = (timeit.default_timer() - start_time) * 1e9  # Convert to nanoseconds
-    runtimes_ns.append(runtime_ns)
+    runtime_s = timeit.default_timer() - start_time  # Directly calculate in seconds
+    runtimes_s.append(runtime_s)
     dim.append(i)
-    print(f"Matrix size: {i}, Runtime: {runtime_ns} ns")
+    print(f"Matrix size: {i}, Runtime: {runtime_s} s")
 
-plt.plot(dim, runtimes_ns, marker='o')
-formatter = FuncFormatter(format_ns)
+plt.plot(dim, runtimes_s, marker='o')
+formatter = FuncFormatter(format_seconds)
 plt.gca().yaxis.set_major_formatter(formatter)
 plt.xlabel('Matrix Size')
-plt.ylabel('Runtime (nanoseconds)')
+plt.ylabel('Runtime (seconds)')
 plt.title('LU Decomposition Runtime')
 plt.grid(True)
-# save figure to /images
+plt.tight_layout()  # Adjust layout
 plt.savefig('images/LU_Decomposition_Runtime.png')
 #plt.show()  # also show in window
