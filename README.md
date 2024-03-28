@@ -73,7 +73,7 @@ Time complexity: O(n^3)
 
 During execution of the Bareiss algorithm, every integer that is computed is the determinant of a submatrix of the input matrix. 
 
-The meat of the code for this algorithm is 3 nested for loops, hence the O(n^3) complexity, simplified below. The main logic that cannot be seen from the below code is that if we come across a principal minor that is 0, we must search for a row to swap the current row with. If no such row exists, then the determinant is 0, and this is simply returned. This explains the dips in the graph that can be seen visually above. Below is a simplified version of the Bareiss algrithm. where n is the length of the matrix, and prev is the previous principle minor:
+The core of the Bareiss algorithm revolves around three nested loops, resulting in an overall complexity of O(n^3). Within these loops, each iteration updates the matrix entries to compute the determinant. However, the crucial logic lies in handling principal minors that become zero during computation. If a principal minor becomes zero, indicating potential singularity, the algorithm must search for a suitable row to swap with the current row. This search ensures the matrix remains non-singular, allowing the algorithm to proceed. If no such row exists for swapping, indicating a singular matrix, the determinant is known to be zero, and the algorithm terminates early. This behavior explains the characteristic dips observed in the complexity graph. The algorithm iterates through the matrix, maintaining the previous principal minor (prev) at each step to facilitate computation.
 
     for i in range(n):
         for j in range(i+1, n):
