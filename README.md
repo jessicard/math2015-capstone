@@ -67,9 +67,7 @@ Laplace Expansion, also commonly referred to as the cofactor expansion, method c
 ### Bareiss Algorithm
 Time complexity: O(n^3)
 
-<div style="text-align:center;">
-    <img src="/images/bareiss.png" alt="Bareiss Graph" />
-</div>
+![Laplace Expansion Graph](/images/bareiss.png)
 
 [bareiss.py](/bareiss.py)
 
