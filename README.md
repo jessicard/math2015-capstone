@@ -63,11 +63,12 @@ Time complexity: O(n!)
 
 Laplace Expansion, also commonly referred to as the cofactor expansion, method calculates the determinant of a matrix by recursively expanding it along a row or column. In each step, it multiplies the determinant of a smaller submatrix (obtained by removing the current row and column) by the value of the element in the position at which the expansion is taking place. The signs of these products alternate according to the position of the element in the matrix, following a pattern that can be determined by adding the row and column indices of the element (with even sums leading to a positive sign and odd sums to a negative sign). This process continues until the determinant of 2x2 matrices can be directly computed, at which point the recursive expansion concludes.
 
-### Bareiss Algorithm
 
-![Bareiss Graph](/images/bareiss.png)
-[bareiss.py](/bareiss.py)
+### Bareiss Algorithm
 Time complexity: O(n^3)
+![Bareiss Graph](/images/bareiss.png)
+
+[bareiss.py](/bareiss.py)
 
 During execution of the Bareiss algorithm, every integer that is computed is the determinant of a submatrix of the input matrix. 
 
@@ -78,7 +79,8 @@ The meat of the code for this algorithm is 3 nested for loops, hence the O(n^3) 
             for k in range(i+1, n):
                 M[j][k] = (M[j][k] * M[i][i] - M[j][i] * M[i][k]) // prev
 
-This algorithm modifies the matrix in place and after calculation, after which the determinant can be found at M[-1][-1], the rightmost entry of the bottom row. 
+This algorithm modifies the matrix in place and after calculation, after which the determinant can be found at M[-1][-1], the rightmost entry of the bottom row.
+
 
 ### LU-decomposition
 [Wikipedia](https://en.wikipedia.org/wiki/LU_decomposition)
