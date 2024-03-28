@@ -36,8 +36,9 @@ def bareiss_algorithm(M):
                 return 0  # all M[*][i] are zero => zero determinant
 
             # swapping the rows, and flipping the sign
+            temp = M[i]
             M[i] = M[swapto]
-            M[swapto] = M[i]
+            M[swapto] = temp
             sign = -sign
 
         # now we are working with an approproate row with non-zero principle minor
@@ -50,7 +51,7 @@ def bareiss_algorithm(M):
         prev = M[i][i]  # updating for next iteration
 
     # done, returning determinant
-    # print(sign * M[-1][-1])
+    print("Determinant: ", sign * M[-1][-1])
     return sign * M[-1][-1]
 
 
@@ -58,14 +59,14 @@ dim = []
 runtimes = []
 
 # This is O(n^3)
-for i in range(2, 200):
+for i in range(2, 20):
     mx = generate_matrix(i)
-    # print(mx)
+    print(mx)
 
     runtime = timeit.timeit(lambda: bareiss_algorithm(mx), number=1)
     runtimes.append(runtime)
     dim.append(i)
-    # print(runtime)
+    print(runtime)
 
 plt.plot(dim, runtimes)
 plt.show()
