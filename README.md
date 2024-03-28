@@ -66,24 +66,19 @@ Laplace Expansion, also commonly referred to as the cofactor expansion, method c
 ### Bareiss Algorithm
 
 ![Bareiss Graph](/images/bareiss.png)
-
 [bareiss.py](/bareiss.py)
-
-
-[Wikipedia](https://en.wikipedia.org/wiki/Bareiss_algorithm)
 Time complexity: O(n^3)
 
 During execution of the Bareiss algorithm, every integer that is computed is the determinant of a submatrix of the input matrix. 
 
-The meat of the code for this algorithm is 3 nested for loops, hence the O(n^3) complexity. 
+The meat of the code for this algorithm is 3 nested for loops, hence the O(n^3) complexity, simplified below. The main logic that cannot be seen from the below code is that if we come across a principal minor that is 0, we must search for a row to swap the current row with. If no such row exists, then the determinant is 0, and this is simply returned. This explains the dips in the graph that can be seen visually above. Below is a simplified version of the Bareiss algrithm. where n is the length of the matrix, and prev is the previous principle minor:
 
-    for k in range(1, n):
-        for i in range(k, n):
-            for j in range(k, n):
+    for i in range(n):
+        for j in range(i+1, n):
+            for k in range(i+1, n):
+                M[j][k] = (M[j][k] * M[i][i] - M[j][i] * M[i][k]) // prev
 
-                matrix[i][j] = (matrix[i][j] * matrix[k-1][k-1] - matrix[i][k-1] * matrix[k-1][j]) / matrix[k-1][k-1]
-
-This algorithm modifies the matrix in place and after calculation, the determinant can be found at M[n][n]. 
+This algorithm modifies the matrix in place and after calculation, after which the determinant can be found at M[-1][-1], the rightmost entry of the bottom row. 
 
 ### LU-decomposition
 [Wikipedia](https://en.wikipedia.org/wiki/LU_decomposition)
