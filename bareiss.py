@@ -7,6 +7,8 @@
 import timeit
 import random
 from matplotlib import pyplot as plt
+from matplotlib.ticker import FuncFormatter
+
 
 
 def generate_matrix(sz):
@@ -54,19 +56,33 @@ def bareiss_algorithm(M):
     print("Determinant: ", sign * M[-1][-1])
     return sign * M[-1][-1]
 
+# formatter for the y-axis
+def format_seconds(x, pos):
+    return f'{x:.2f} s'
 
 dim = []
 runtimes = []
 
 # This is O(n^3)
-for i in range(2, 20):
+for i in range(2, 128):
     mx = generate_matrix(i)
     print(mx)
-
     runtime = timeit.timeit(lambda: bareiss_algorithm(mx), number=1)
     runtimes.append(runtime)
     dim.append(i)
     print(runtime)
+    print(f"Matrix size: {i}, Runtime: {runtime:.2e} s")
 
-plt.plot(dim, runtimes)
-plt.show()
+# Plotting
+plt.plot(dim, runtimes, marker='o')
+
+# Formatting the plot with labels and title
+formatter = FuncFormatter(format_seconds)
+plt.gca().yaxis.set_major_formatter(formatter)
+plt.xlabel('Matrix Size')
+plt.ylabel('Runtime (seconds)')
+plt.title('Bareiss Algorithm Runtime')
+plt.grid(True)
+plt.tight_layout()  # Adjust layout for better fit
+plt.savefig('images/bareiss_2_the_reckoning.png')  # Save the figure (optional)
+#plt.show()  # Show the plot
