@@ -1,6 +1,7 @@
 import timeit
 import random
 from matplotlib import pyplot as plt
+from matplotlib.ticker import FuncFormatter
 
 def generate_matrix(sz):
   matrix = []
@@ -48,15 +49,29 @@ def calc_det(matrix):
 dim = []
 runtimes = []
 
+def format_seconds(x, pos):
+    return f'{x:.2f} s'
+
 # This is O(n!), if you increase this upper bound, prepare to wait... forever
 for i in range(2, 9):
-  mx = generate_matrix(i)
-  print(mx)
+    mx = generate_matrix(i)
+    print(mx)
+    # Wrap the determinant calculation in a lambda to pass it to timeit
+    runtime = timeit.timeit(lambda: calc_det(mx), number=1)
+    runtimes.append(runtime)
+    dim.append(i)
+    print(f"Matrix size: {i}, Runtime: {runtime:.2e}")
 
-  runtime = timeit.timeit(lambda: calc_det(mx), number=1)
-  runtimes.append(runtime)
-  dim.append(i)
-  print(runtime)
+# plotting
+plt.plot(dim, runtimes, marker='o')
 
-plt.plot(dim, runtimes)
-plt.show()
+# formatting the plot with labels and title
+formatter = FuncFormatter(format_seconds)
+plt.gca().yaxis.set_major_formatter(formatter)
+plt.xlabel('Matrix Size')
+plt.ylabel('Runtime (seconds)')
+plt.title('Determinant Calculation Runtime using Laplace Expansion')
+plt.grid(True)
+plt.tight_layout()  # adjust layout for better fit
+plt.savefig('images/laplace_2_electric_boogaloo.png')  # save png
+
