@@ -57,7 +57,7 @@ $ git push origin master
 
 ### Laplace Expansion
 Time complexity: O(n!)
-![Laplace Expansion Graph](/images/laplace_2_electric_boogaloo)
+![Laplace Expansion Graph](/images/laplace_2_electric_boogaloo.png)
 
 [laplace.py](/laplace.py)
 
@@ -65,6 +65,7 @@ Laplace Expansion, also commonly referred to as the cofactor expansion, method c
 
 
 ### Bareiss Algorithm
+[Wikipedia](https://en.wikipedia.org/wiki/Bareiss_algorithm)
 Time complexity: O(n^3)
 
 ![Bareiss Expansion Graph](/images/bareiss_2_the_reckoning.png)
@@ -86,6 +87,8 @@ This algorithm modifies the matrix in place and after calculation, after which t
 ### LU-decomposition
 [Wikipedia](https://en.wikipedia.org/wiki/LU_decomposition)
 Time complexity: O(n^3)
+
+![LU-Decomposition Graph](/images/LU_Decomposition_Runtime.png)
 
 [lu_decomp.py](/lu_decomp.py)
 
