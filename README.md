@@ -91,6 +91,22 @@ Time complexity: O(n^3)
 
 LU-Decomposition is an algorithm that can be used for solving systems of linear equations, the inversion of matricies, and in our case, computing the determinant of a square matrix. Our goal is given a matrix A, decompose A into three individual components: a lower triangular matrix L, an upper triangular matrix U (not unlike an upper triangular matrix we form with Gaussian elimination), and a permutation matrix P that tracks row swaps -- such that P * A = L * U. In our particular implementation, we initialize square matrix A and a permutation vector P with indices 0-N. The last element of P, (P[N]), counts the number of row swaps to determine the sign of the determinant. For picking the pivots, we iterate through each column [i] and search for the element with the maximum absolute value in that column. In swapping rows, if the row with the maximum element [imax] is not the current row [i], we swap that row with [imax] -- not only swapping within A but modifying the permutation vector P (important for determining sign at the end). After we pivot, we look at all rows below [i] and each element below the specified pivot in the current column is divided by the pivot, forming part of the lower triangular (L) matrix. We then update the remaining elements for each row by subtracting a multiple in the current row (close to Gaussian elimination) to effectively contstruct both the upper and lower triangular matrices in place. Since the determinant of a triangular matrix is the product of it's diagonal elements, and U is the upper triangular after the decomposition, the determinant can be easily calculated once we've decomposed A into LU and determine the sign with P.
 
+
+## Eigen Decomposition
+[Wikipedia](https://en.wikipedia.org/wiki/Eigendecomposition_of_a_matrix)
+Time complexity: O(n^3) (usually)
+
+[eigendecomposition.py](/eigendecomposition.py)
+
+Provided that a matrix is diagonalizable, we can also use a method called Eigen Decomposition to compute the determinant. In this method, we aim to decompose a square matrix A into a product of three matrices: A = PDP^-1 where P is a matrix made up of the eigenvectors of A, and D is a diagonal matrix whose elements are all the eigenvalues of A. The determinant then is the product of its eigenvalues. More simply put, we: 
+
+    1) Compute all eigenvalues of A, which in turn become the diagonal elements of D
+    2) Calculate the product of the eigenvalues
+
+Because the determinant of a matrix is equal to the product of its eigenvalues, Eigen Decomposition can be incredibly efficent on smaller matrices, with the exception that the provided matrix is already diagonalizable.
+
 ### Strassen
 [Wikipedia](https://en.wikipedia.org/wiki/Strassen_algorithm)
 Time complexity: O(n^(2.807))
+
+

@@ -15,7 +15,7 @@ runtimes_s = []
 for i in range(2, 128):  # can adjust range for sizes as needed
     A = generate_matrix(i)
     start_time = timeit.default_timer()
-    eigenvalues, _ = np.linalg.eig(A)  # compute eigenvalues and eigenvectors, using built in method but who could possibly know other than the TA looking at this
+    eigenvalues, _ = np.linalg.eig(A)  # compute eigenvalues and eigenvectors, using built in method (maybe omit this idk)
     determinant = np.prod(eigenvalues)  # compute the determinant as the product of eigenvalues
     runtime_s = timeit.default_timer() - start_time  # seconds
     runtimes_s.append(runtime_s)
@@ -31,4 +31,4 @@ plt.title('Eigendecomposition Runtime')
 plt.grid(True)
 plt.tight_layout()  #adjust layout
 plt.savefig('images/eigendecomposition.png')
-#plt.show()  # display the plot locally
+#plt.show()  # display plot
