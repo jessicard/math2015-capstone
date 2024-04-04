@@ -56,7 +56,9 @@ $ git push origin master
 [Computational Complexities of Matrix Multiplication](https://en.wikipedia.org/wiki/Computational_complexity_of_matrix_multiplication)
 
 ### Laplace Expansion
+[Wikipedia](https://en.wikipedia.org/wiki/Laplace_expansion)
 Time complexity: O(n!)
+
 ![Laplace Expansion Graph](/images/laplace_2_electric_boogaloo.png)
 
 [laplace.py](/laplace.py)
@@ -98,6 +100,8 @@ LU-Decomposition is an algorithm that can be used for solving systems of linear 
 ## Eigen Decomposition
 [Wikipedia](https://en.wikipedia.org/wiki/Eigendecomposition_of_a_matrix)
 Time complexity: O(n^3) (usually)
+
+![Eigenvalue Decomposition Graph](/images/eigendecomposition.png)
 
 [eigendecomposition.py](/eigendecomposition.py)
 
