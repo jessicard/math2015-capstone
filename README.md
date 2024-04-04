@@ -57,7 +57,7 @@ $ git push origin master
 
 ### Laplace Expansion
 Time complexity: O(n!)
-![Laplace Expansion Graph](/images/laplace.png)
+![Laplace Expansion Graph](/images/laplace_2_electric_boogaloo)
 
 [laplace.py](/laplace.py)
 
@@ -67,7 +67,7 @@ Laplace Expansion, also commonly referred to as the cofactor expansion, method c
 ### Bareiss Algorithm
 Time complexity: O(n^3)
 
-![Laplace Expansion Graph](/images/bareiss.png)
+![Bareiss Expansion Graph](/images/bareiss_2_the_reckoning.png)
 
 [bareiss.py](/bareiss.py)
 
@@ -86,6 +86,10 @@ This algorithm modifies the matrix in place and after calculation, after which t
 ### LU-decomposition
 [Wikipedia](https://en.wikipedia.org/wiki/LU_decomposition)
 Time complexity: O(n^3)
+
+[lu_decomp.py](/lu_decomp.py)
+
+LU-Decomposition is an algorithm that can be used for solving systems of linear equations, the inversion of matricies, and in our case, computing the determinant of a square matrix. Our goal is given a matrix A, decompose A into three individual components: a lower triangular matrix L, an upper triangular matrix U (not unlike an upper triangular matrix we form with Gaussian elimination), and a permutation matrix P that tracks row swaps -- such that P * A = L * U. In our particular implementation, we initialize square matrix A and a permutation vector P with indices 0-N. The last element of P, (P[N]), counts the number of row swaps to determine the sign of the determinant. For picking the pivots, we iterate through each column [i] and search for the element with the maximum absolute value in that column. In swapping rows, if the row with the maximum element [imax] is not the current row [i], we swap that row with [imax] -- not only swapping within A but modifying the permutation vector P (important for determining sign at the end). After we pivot, we look at all rows below [i] and each element below the specified pivot in the current column is divided by the pivot, forming part of the lower triangular (L) matrix. We then update the remaining elements for each row by subtracting a multiple in the current row (close to Gaussian elimination) to effectively contstruct both the upper and lower triangular matrices in place. Since the determinant of a triangular matrix is the product of it's diagonal elements, and U is the upper triangular after the decomposition, the determinant can be easily calculated once we've decomposed A into LU and determine the sign with P.
 
 ### Strassen
 [Wikipedia](https://en.wikipedia.org/wiki/Strassen_algorithm)

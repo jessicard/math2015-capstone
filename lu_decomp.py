@@ -19,7 +19,7 @@ def LUPDecompose(A, Tol=1.0e-9):
             raise Exception("Matrix is degenerate")
         if imax != i:
             P[i], P[imax] = P[imax], P[i]
-            A[[i, imax]] = A[[imax, i]]  # swap rows (allowed?)
+            A[[i, imax]] = A[[imax, i]]  # swap rows
             P[N] += 1
         for j in range(i+1, N):
             A[j][i] /= A[i][i]
@@ -39,7 +39,7 @@ for i in range(2, 128):  # can adjust range for sizes
     A = generate_matrix(i)
     start_time = timeit.default_timer()
     P = LUPDecompose(A.copy())  # use A.copy() to avoid modifying the original A
-    runtime_s = timeit.default_timer() - start_time  # Directly calculate in seconds
+    runtime_s = timeit.default_timer() - start_time  # directly calculate in seconds
     runtimes_s.append(runtime_s)
     dim.append(i)
     print(f"Matrix size: {i}, Runtime: {runtime_s} s")
@@ -51,6 +51,6 @@ plt.xlabel('Matrix Size')
 plt.ylabel('Runtime (seconds)')
 plt.title('LU Decomposition Runtime')
 plt.grid(True)
-plt.tight_layout()  # Adjust layout
+plt.tight_layout()  # adjust layout
 plt.savefig('images/LU_Decomposition_Runtime.png')
 #plt.show()  # also show in window
