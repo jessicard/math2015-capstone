@@ -6,7 +6,7 @@ Group members:
 - [Jessica Card](https://github.com/jessicard)
 - [Alexander Mies](https://github.com/AlexanderMies)
 - [Jacob Million](https://github.com/JacobMMillion)
-- Edward Yi
+- [Edward Yi](https://github.com/Edward-D-Yi)
 
 
 ## Running locally
