@@ -108,6 +108,13 @@ Time complexity: O(n^3)
 LU-Decomposition is an algorithm that can be used for solving systems of linear equations, the inversion of matricies, and in our case, computing the determinant of a square matrix. Our goal is given a matrix A, decompose A into three individual components: a lower triangular matrix L, an upper triangular matrix U (not unlike an upper triangular matrix we form with Gaussian elimination), and a permutation matrix P that tracks row swaps -- such that P * A = L * U. In our particular implementation, we initialize square matrix A and a permutation vector P with indices 0-N. The last element of P, (P[N]), counts the number of row swaps to determine the sign of the determinant. For picking the pivots, we iterate through each column [i] and search for the element with the maximum absolute value in that column. In swapping rows, if the row with the maximum element [imax] is not the current row [i], we swap that row with [imax] -- not only swapping within A but modifying the permutation vector P (important for determining sign at the end). After we pivot, we look at all rows below [i] and each element below the specified pivot in the current column is divided by the pivot, forming part of the lower triangular (L) matrix. We then update the remaining elements for each row by subtracting a multiple in the current row (close to Gaussian elimination) to effectively contstruct both the upper and lower triangular matrices in place. Since the determinant of a triangular matrix is the product of it's diagonal elements, and U is the upper triangular after the decomposition, the determinant can be easily calculated once we've decomposed A into LU and determine the sign with P.
 
 
+Because we require n additions and n multiplicaitons in the first column of an nxn matrix, the first column can be expressed as 2n(n-1). The second column then requires n-1 additions and n-1 multiplications, yielding 2(n - 1)(n - 2). Doing this for n number of rows yields:
+
+\sum_{i=1}^{n} 2(n-i)(n-i+1)
+
+Which simplifies to 2/3 n^3, and dropping the constant gives us a time complexity of O(n^3).
+
+
 ## Eigen Decomposition
 [Wikipedia](https://en.wikipedia.org/wiki/Eigendecomposition_of_a_matrix)
 Time complexity: O(n^3) (usually)
