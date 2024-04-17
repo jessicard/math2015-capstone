@@ -78,6 +78,8 @@ The Bareiss algorithm can be thought of as a “Multistep Integer-Preserving Gau
     for i in range(N-1):
 
         # ensure non-zero principle minor
+        # flip sign if non-zero principle minor and suitable swap row exists, swap
+        # return 0 if non-zero principle minor and suitable swap row does not exist
 
         for j in range(i+1, N):
             for k in range(i+1, N):
@@ -86,6 +88,8 @@ The Bareiss algorithm can be thought of as a “Multistep Integer-Preserving Gau
                 M[j][k] = (M[j][k] * M[i][i] - M[j][i] * M[i][k]) // prev
 
         prev = M[i][i]  # updating for next iteration
+
+    return sign * M[-1][-1]
 
 This algorithm modifies the matrix in place and after calculation, after which the determinant can be found at M[-1][-1], the rightmost entry of the bottom row.
 
