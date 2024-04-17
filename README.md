@@ -73,12 +73,19 @@ Time complexity: O(n^3)
 
 [bareiss.py](/bareiss.py)
 
-The Bareiss algorithm can be thought of as a “Multistep Integer-Preserving Gaussian Elimination” as was the paper titled by Erwin H. Bareiss, the mathematician that developed the algorithm. The Bareiss algorithm requires a similar time complexity to the Gaussian Elimination runtime, as both require O(n^3). This algorithm, which can be applied to any integer matrix, is unique as it uses only integer arithmetic in its procedure. The division performed in the code below is guaranteed to be without a remainder. In code, this looks three nested ‘for’ loops to modify the matrix in place so that each M(i,i) contains the leading principal minor. Like in Gaussian elimination, rows can be swapped in this procedure if necessary. If a principle minor becomes zero during computation, a suitable row to swap with is searched for and swapped with if one exists. Otherwise, the determinant is zero and the algorithm terminated early. This can be seen visually in the graph below, the occasional dips exhibiting this occurrence. At the end of the algorithm, the determinant can be found at M(-1,-1), the row the algorithm halts at, at the rightmost column position. The algorithm used in the code for this project functions only for an nxn matrix. Below is the core of the Bareiss algorithm (row swapping and other bookeeping code removed for simplicity):
+The Bareiss algorithm can be thought of as a “Multistep Integer-Preserving Gaussian Elimination” as was the paper titled by Erwin H. Bareiss, the mathematician that developed the algorithm. The Bareiss algorithm requires a similar time complexity to the Gaussian Elimination runtime, as both require O(n^3). This algorithm, which can be applied to any integer matrix, is unique as it uses only integer arithmetic in its procedure. The division performed in the code below is guaranteed to be without a remainder. In code, this looks three nested ‘for’ loops to modify the matrix in place so that each M(i,i) contains the leading principal minor. Like in Gaussian elimination, rows can be swapped in this procedure if necessary. If a principle minor becomes zero during computation, a suitable row to swap with is searched for and swapped with if one exists. If this is done, the sign of the determinant is flipped each time. Otherwise, the determinant is zero and the algorithm terminated early. At the end of the algorithm, the determinant can be found at M(-1,-1), the row the algorithm halts at, at the rightmost column position. The algorithm used in the code for this project functions only for an nxn matrix. Below is the core of the Bareiss algorithm (row swapping and other bookeeping code removed for simplicity):
 
-    for i in range(n):
-        for j in range(i+1, n):
-            for k in range(i+1, n):
+    for i in range(N-1):
+
+        # ensure non-zero principle minor
+
+        for j in range(i+1, N):
+            for k in range(i+1, N):
+
+                # applying the formula
                 M[j][k] = (M[j][k] * M[i][i] - M[j][i] * M[i][k]) // prev
+
+        prev = M[i][i]  # updating for next iteration
 
 This algorithm modifies the matrix in place and after calculation, after which the determinant can be found at M[-1][-1], the rightmost entry of the bottom row.
 
