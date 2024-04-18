@@ -98,7 +98,6 @@ Like in Gaussian elimination, rows can be swapped in this procedure if necessary
     # returning the determinant, located at the bottom rightmost position
     return sign * M[-1][-1]
 
-This algorithm modifies the matrix in place and after calculation, after which the determinant can be found at M[-1][-1], the rightmost entry of the bottom row.
 
 
 ### LU-decomposition
