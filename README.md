@@ -133,6 +133,8 @@ Provided that a matrix is diagonalizable, we can also use a method called Eigen 
 
 Because the determinant of a matrix is equal to the product of its eigenvalues, Eigen Decomposition can be incredibly efficent on smaller matrices, with the exception that the provided matrix is already diagonalizable.
 
+Although in theory Eigen Decomposition can be as fast as matrix multiplication (which can be done with O(nw) arithmatic operations), the operations are instead over polynomials of degree n and, as a result, bump the runtime up to O(n^3) in practice. [Victor Y. Pan, Zhao Q. Chen: The Complexity of the Matrix Eigenproblem. STOC 1999: 507-516]
+
 ### Strassen
 [Wikipedia](https://en.wikipedia.org/wiki/Strassen_algorithm)
 Time complexity: O(n^(2.807))
