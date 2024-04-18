@@ -81,11 +81,11 @@ Like in Gaussian elimination, rows can be swapped in this procedure if necessary
 
     # Simplified Bareiss Algorithm:
     
-    for i in range(N-1):
+    for i in range(N-1): # where N is the size of the matrix
 
-        # ensure non-zero principle minor
-        # flip sign if non-zero principle minor and suitable swap row exists, swap
-        # return 0 if non-zero principle minor and suitable swap row does not exist
+        # ensure non-zero M[i][i]
+        # flip sign if zero M[i][i] and suitable swap row exists, swap
+        # return 0 if zero M[i][i] and suitable swap row does not exist
 
         for j in range(i+1, N):
             for k in range(i+1, N):
